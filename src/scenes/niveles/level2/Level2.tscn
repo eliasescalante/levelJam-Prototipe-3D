@@ -1,11 +1,13 @@
 [gd_scene format=3 uid="uid://b7ff0u3or0c4q"]
 
 [ext_resource type="PackedScene" uid="uid://dcak6fkasbux7" path="res://src/scenes/entidades/player/Player.tscn" id="1_1efb8"]
+[ext_resource type="Script" uid="uid://bvahr5iousomm" path="res://src/scenes/niveles/level2/level_2.gd" id="1_36165"]
 [ext_resource type="PackedScene" uid="uid://bywypvli2vaw4" path="res://src/scenes/entidades/enemigos/enemigo/Enemigo.tscn" id="2_kj2x1"]
 [ext_resource type="Texture2D" uid="uid://juyof4p75wf4" path="res://src/assets/Tile_suelo_0.png" id="2_nu4uu"]
 [ext_resource type="Texture2D" uid="uid://johomt5a4go0" path="res://src/assets/Pared ladrillos sombre 64.png" id="3_7uwnp"]
 [ext_resource type="Texture2D" uid="uid://cpnysc0m8prno" path="res://src/assets/Pared grietas 64.png" id="4_m6pjm"]
 [ext_resource type="Script" uid="uid://b5d4lxgsqa532" path="res://src/scenes/niveles/level2/pared_9.gd" id="5_nu4uu"]
+[ext_resource type="PackedScene" uid="uid://bb7ud135w0a5e" path="res://src/scenes/hud/Hud.tscn" id="8_p4lfo"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1efb8"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -187,6 +189,7 @@ size = Vector3(17.849854, 4.4730225, 1)
 data = PackedVector3Array(-8.9249, 2.2365, 0.5, 8.9249, 2.2365, 0.5, -8.9249, -2.2365, 0.5, 8.9249, 2.2365, 0.5, 8.9249, -2.2365, 0.5, -8.9249, -2.2365, 0.5, 8.9249, 2.2365, -0.5, -8.9249, 2.2365, -0.5, 8.9249, -2.2365, -0.5, -8.9249, 2.2365, -0.5, -8.9249, -2.2365, -0.5, 8.9249, -2.2365, -0.5, 8.9249, 2.2365, 0.5, 8.9249, 2.2365, -0.5, 8.9249, -2.2365, 0.5, 8.9249, 2.2365, -0.5, 8.9249, -2.2365, -0.5, 8.9249, -2.2365, 0.5, -8.9249, 2.2365, -0.5, -8.9249, 2.2365, 0.5, -8.9249, -2.2365, -0.5, -8.9249, 2.2365, 0.5, -8.9249, -2.2365, 0.5, -8.9249, -2.2365, -0.5, 8.9249, 2.2365, 0.5, -8.9249, 2.2365, 0.5, 8.9249, 2.2365, -0.5, -8.9249, 2.2365, 0.5, -8.9249, 2.2365, -0.5, 8.9249, 2.2365, -0.5, -8.9249, -2.2365, 0.5, 8.9249, -2.2365, 0.5, -8.9249, -2.2365, -0.5, 8.9249, -2.2365, 0.5, 8.9249, -2.2365, -0.5, -8.9249, -2.2365, -0.5)
 
 [node name="LevelTest" type="Node3D" unique_id=1252322629]
+script = ExtResource("1_36165")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=21782139]
 environment = SubResource("Environment_rrja7")
@@ -386,3 +389,5 @@ transform = Transform3D(0.017572647, 0, 0.99984556, 0, 1, 0, -0.99984556, 0, 0.0
 
 [node name="Enemigo3" parent="Enemigos" unique_id=1321776569 instance=ExtResource("2_kj2x1")]
 transform = Transform3D(0.0133723365, 0, -0.9999106, 0, 1, 0, 0.9999106, 0, 0.0133723365, -28.299856, -2.5864458, 1.2020721)
+
+[node name="Hud" parent="." unique_id=1569060435 instance=ExtResource("8_p4lfo")]
