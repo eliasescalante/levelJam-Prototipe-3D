@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://bywypvli2vaw4"]
+
+[ext_resource type="Script" uid="uid://cha8v0mltblli" path="res://src/scenes/enemigo/enemigo.gd" id="1_cf7et"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qpix5"]
+albedo_color = Color(1, 0.25490198, 0.11372549, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_fhsag"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fhsag"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ykvqv"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(0.7647059, 0.05882353, 0, 0.34901962)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_fhsag"]
+top_radius = 4.0
+height = 0.02
+
+[node name="Enemigo" type="Area3D" unique_id=1178914136]
+script = ExtResource("1_cf7et")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=96991568]
+transform = Transform3D(1, 0, 0, 0, 0.99071074, 0.13598657, 0, -0.13598657, 0.99071074, 0, 0, -0.6140511)
+light_color = Color(1, 1, 0.047058824, 1)
+light_energy = 30.0
+light_indirect_energy = 6.252
+shadow_enabled = true
+spot_range = 7.1675806
+spot_angle = 51.458115
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1475832305]
+material_override = SubResource("StandardMaterial3D_qpix5")
+mesh = SubResource("CapsuleMesh_fhsag")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=525546519]
+shape = SubResource("CapsuleShape3D_fhsag")
+
+[node name="RangoVision" type="Area3D" parent="." unique_id=861773098]
+
+[node name="SombraVision" type="CSGMesh3D" parent="RangoVision" unique_id=1023087853]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0687643, 0)
+visible = false
+material_override = SubResource("StandardMaterial3D_ykvqv")
+mesh = SubResource("CylinderMesh_fhsag")
+
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="RangoVision" unique_id=391295330]
+transform = Transform3D(1, 0, 0, 0, -0.13935262, -0.99024284, 0, 0.99024284, -0.13935262, 0, 0, 0)
+polygon = PackedVector2Array(0.056139097, 0.049279213, 2.0719225, -5.494301, -2.5483928, -5.5107784)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_entered" from="RangoVision" to="." method="_on_rango_vision_body_entered"]
