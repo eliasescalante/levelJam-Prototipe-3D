@@ -1,3 +1,6 @@
 [gd_scene format=3 uid="uid://styr6rmht8hd"]
 
-[node name="GridMap" type="Node3D" unique_id=2123956660]
+[sub_resource type="MeshLibrary" id="MeshLibrary_fhsag"]
+
+[node name="GridMap" type="GridMap" unique_id=1218993852]
+mesh_library = SubResource("MeshLibrary_fhsag")

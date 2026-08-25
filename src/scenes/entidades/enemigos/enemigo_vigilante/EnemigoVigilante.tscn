@@ -21,6 +21,10 @@ height = 0.02
 [node name="EnemigoVigilante" type="Area3D" unique_id=84659721]
 script = ExtResource("1_a8dl2")
 
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1416809126]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+light_color = Color(1, 1, 0.19215687, 1)
+
 [node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=1814845485]
 transform = Transform3D(1, 0, 0, 0, 0.9965953, 0.08244915, 0, -0.08244915, 0.9965953, 0, 0, -0.6140511)
 light_color = Color(1, 1, 0.047058824, 1)
