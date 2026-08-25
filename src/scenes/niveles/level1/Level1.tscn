@@ -101,7 +101,7 @@ mesh = SubResource("BoxMesh_fhsag")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Piso/StaticBody3D" unique_id=1183501841]
 shape = SubResource("ConcavePolygonShape3D_ifswh")
 
-[node name="Paredes" type="Node3D" parent="." unique_id=1576973445]
+[node name="Paredes" type="GridMap" parent="." unique_id=1720374080]
 
 [node name="Pared" type="MeshInstance3D" parent="Paredes" unique_id=435549764]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.320676, 2.8217666, -10.741795)

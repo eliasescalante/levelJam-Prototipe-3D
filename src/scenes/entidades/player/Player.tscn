@@ -139,9 +139,4 @@ billboard = 2
 sprite_frames = SubResource("SpriteFrames_fhsag")
 animation = &"walk_back"
 
-[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=693195685]
-transform = Transform3D(1, 0, 0, 0, 0.051428825, 0.9986767, 0, -0.9986767, 0.051428825, 0, 2.973093, 0)
-light_energy = 7.962
-light_indirect_energy = 4.158
-spot_range = 7.3612165
-spot_angle = 65.059326
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1362631186]
