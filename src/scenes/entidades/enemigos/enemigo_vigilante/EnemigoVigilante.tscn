@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://dbd5oky0j7im7"]
+
+[ext_resource type="Script" uid="uid://d184a8nxv2gmf" path="res://src/scenes/entidades/enemigos/enemigo_vigilante/enemigo_vigilante.gd" id="1_a8dl2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bbgl3"]
+albedo_color = Color(1, 0.25490198, 0.11372549, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_a8dl2"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_s8gat"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vedai"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(0.7647059, 0.05882353, 0, 0.34901962)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_6forx"]
+top_radius = 4.0
+height = 0.02
+
+[node name="EnemigoVigilante" type="Area3D" unique_id=84659721]
+script = ExtResource("1_a8dl2")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=1814845485]
+transform = Transform3D(1, 0, 0, 0, 0.9965953, 0.08244915, 0, -0.08244915, 0.9965953, 0, 0, -0.6140511)
+light_color = Color(1, 1, 0.047058824, 1)
+light_energy = 30.0
+light_indirect_energy = 6.252
+shadow_enabled = true
+spot_range = 24.428318
+spot_angle = 24.757145
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1737835038]
+material_override = SubResource("StandardMaterial3D_bbgl3")
+mesh = SubResource("CapsuleMesh_a8dl2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1741919898]
+shape = SubResource("CapsuleShape3D_s8gat")
+
+[node name="RangoVision" type="Area3D" parent="." unique_id=1147846569]
+
+[node name="SombraVision" type="CSGMesh3D" parent="RangoVision" unique_id=1507078377]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0687643, 0)
+visible = false
+material_override = SubResource("StandardMaterial3D_vedai")
+mesh = SubResource("CylinderMesh_6forx")
+
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="RangoVision" unique_id=592093335]
+transform = Transform3D(1, 0, 0, 0, -0.13935262, -0.99024284, 0, 0.99024284, -0.13935262, 0, 0, 0)
+polygon = PackedVector2Array(0.056139097, 0.049279213, 4.4682717, -13.390197, -3.9342036, -13.350657)
+
+[node name="RayCast3D" type="RayCast3D" parent="RangoVision" unique_id=272195202]
+transform = Transform3D(-1.0492798, 0.047215737, 0.17390756, 0.16173811, -0.17526932, 1.1259233, 0.012393632, 6.2846947, 0.030093528, 0, 0, 0)
+debug_shape_custom_color = Color(0.8117647, 0, 0, 1)
+debug_shape_thickness = 5

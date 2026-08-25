@@ -2,8 +2,6 @@ extends CharacterBody3D
 
 @export var SPEED := 6.0
 @export var JUMP_VELOCITY := 4.5
-
-# Máscara de colisión original para restaurarla cuando sea visible
 @export_flags_3d_physics var capa_dano_enemigos: int = 1 
 
 @onready var camera_3d: Camera3D = get_viewport().get_camera_3d()
@@ -12,14 +10,12 @@ extends CharacterBody3D
 var es_invisible := false
 var timer_invisibilidad: Timer
 
-# Guarda si la última orientación fue hacia el frente (1.0) o de espaldas (-1.0)
 var ultima_direccion_y := 1.0 
 
 func _ready() -> void:
 	if animated_sprite_3d:
 		animated_sprite_3d.modulate.a = 1.0
 	
-	# Configuración del Timer intermitente (cada 5 segundos alterna el estado)
 	timer_invisibilidad = Timer.new()
 	timer_invisibilidad.wait_time = 5.0
 	timer_invisibilidad.one_shot = false
@@ -27,9 +23,7 @@ func _ready() -> void:
 	timer_invisibilidad.timeout.connect(_alternar_invisibilidad)
 	add_child(timer_invisibilidad)
 
-
 func _physics_process(delta: float) -> void:
-	# (Limpiado: ya no hace falta decrementar el tiempo manualmente aquí)
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
@@ -60,9 +54,7 @@ func _physics_process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 
 	_actualizar_animacion(input_dir)
-
 	move_and_slide()
-
 
 func _actualizar_animacion(input_dir: Vector2) -> void:
 	if not animated_sprite_3d:
@@ -92,20 +84,15 @@ func _actualizar_animacion(input_dir: Vector2) -> void:
 	if input_dir.x != 0:
 		animated_sprite_3d.flip_h = (input_dir.x < 0)
 
-
 func _alternar_invisibilidad() -> void:
 	es_invisible = !es_invisible
 
 	if es_invisible:
-		# Alfa semitransparente (0.3 para ver al personaje mientras juega)
 		if animated_sprite_3d:
-			animated_sprite_3d.modulate.a = 0.3
+			animated_sprite_3d.modulate.a = 0.1
 		
-		# Desactiva la capa de colisión elegida (inmunidad)
 		set_collision_layer_value(capa_dano_enemigos, false)
 	else:
 		if animated_sprite_3d:
 			animated_sprite_3d.modulate.a = 1.0
-		
-		# Reactiva la colisión
 		set_collision_layer_value(capa_dano_enemigos, true)

@@ -20,7 +20,6 @@ func _physics_process(delta: float) -> void:
 	velocity.x = direccion_actual.x * SPEED
 	velocity.z = direccion_actual.z * SPEED
 
-	# Rotación del cuerpo principal (el ConoVisor al ser hijo rota automáticamente a la par)
 	if direccion_actual != Vector3.ZERO:
 		var target_angle := atan2(direccion_actual.x, direccion_actual.z) + PI
 		rotation.y = lerp_angle(rotation.y, target_angle, 0.15)
@@ -30,7 +29,6 @@ func _physics_process(delta: float) -> void:
 	if is_on_wall():
 		elegir_nueva_direccion()
 
-	# Detección física directa
 	for i in get_slide_collision_count():
 		var col := get_slide_collision(i)
 		var collider := col.get_collider() as Node
@@ -56,7 +54,6 @@ func _evaluar_deteccion_cono() -> void:
 		var dir_hacia_jugador := (body.global_position - global_position).normalized()
 		dir_hacia_jugador.y = 0
 
-		# Vector frontal del enemigo (-Z)
 		var vector_frente := -global_transform.basis.z
 		vector_frente.y = 0
 
@@ -70,16 +67,13 @@ func _debe_matar_a(body: Node) -> bool:
 	if not body:
 		return false
 		
-	# Si lo que colisionó es una forma dentro del jugador, buscamos el cuerpo principal
 	var jugador: Node = body
 	if not jugador.is_in_group("jugador"):
-		# Intentamos buscar si el padre pertenece al grupo jugador
 		if body.get_parent() and body.get_parent().is_in_group("jugador"):
 			jugador = body.get_parent()
 		else:
 			return false
-		
-	# Comprobamos la invisibilidad en el jugador
+
 	if "es_invisible" in jugador and jugador.es_invisible:
 		return false
 		

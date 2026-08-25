@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dcak6fkasbux7"]
 
-[ext_resource type="Script" uid="uid://cwyt54fv3b6ik" path="res://src/scenes/player/player.gd" id="1_0kbph"]
-[ext_resource type="Script" uid="uid://c2k8o87yv57ls" path="res://src/scenes/player/camera_3d.gd" id="2_sdprq"]
+[ext_resource type="Script" uid="uid://cwyt54fv3b6ik" path="res://src/scenes/entidades/player/player.gd" id="1_0kbph"]
+[ext_resource type="Script" uid="uid://c2k8o87yv57ls" path="res://src/scenes/entidades/player/camera_3d.gd" id="2_sdprq"]
 [ext_resource type="Texture2D" uid="uid://bkdeti3xcqudo" path="res://src/assets/Osvaldo_Walk_Front.png" id="3_xqlsy"]
 [ext_resource type="Texture2D" uid="uid://bmcnyslfx0137" path="res://src/assets/Osvaldo_Walk_Back.png" id="3_xxciv"]
 
@@ -131,7 +131,7 @@ transform = Transform3D(1, 0, 0, 0, 0.7071068, 0.7071068, 0, -0.7071068, 0.70710
 top_level = true
 script = ExtResource("2_sdprq")
 target = NodePath("..")
-distance = 4.0
+distance = 9.0
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=828985903]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
@@ -140,5 +140,8 @@ sprite_frames = SubResource("SpriteFrames_fhsag")
 animation = &"walk_back"
 
 [node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=693195685]
-transform = Transform3D(1, 0, 0, 0, 0.051428825, 0.9986767, 0, -0.9986767, 0.051428825, 0, 2.5798228, 0)
-light_energy = 2.099
+transform = Transform3D(1, 0, 0, 0, 0.051428825, 0.9986767, 0, -0.9986767, 0.051428825, 0, 2.973093, 0)
+light_energy = 7.962
+light_indirect_energy = 4.158
+spot_range = 7.3612165
+spot_angle = 65.059326

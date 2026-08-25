@@ -1,11 +1,12 @@
 [gd_scene format=3 uid="uid://bvtbuuswg32xw"]
 
-[ext_resource type="Texture2D" uid="uid://juyof4p75wf4" path="res://src/assets/Tile_suelo_0.png" id="1_qnh4b"]
-[ext_resource type="Texture2D" uid="uid://johomt5a4go0" path="res://src/assets/Pared ladrillos sombre 64.png" id="2_wbo6q"]
-[ext_resource type="PackedScene" uid="uid://dcak6fkasbux7" path="res://src/scenes/player/Player.tscn" id="3_voxmv"]
+[ext_resource type="PackedScene" uid="uid://dcak6fkasbux7" path="res://src/scenes/entidades/player/Player.tscn" id="1_1efb8"]
+[ext_resource type="Texture2D" uid="uid://juyof4p75wf4" path="res://src/assets/Tile_suelo_0.png" id="2_nu4uu"]
+[ext_resource type="Texture2D" uid="uid://johomt5a4go0" path="res://src/assets/Pared ladrillos sombre 64.png" id="3_7uwnp"]
+[ext_resource type="PackedScene" uid="uid://dbd5oky0j7im7" path="res://src/scenes/entidades/enemigos/enemigo_vigilante/EnemigoVigilante.tscn" id="4_jhmsl"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_owpdf"]
-albedo_texture = ExtResource("1_qnh4b")
+albedo_texture = ExtResource("2_nu4uu")
 uv1_scale = Vector3(34, 34, 34)
 uv1_triplanar = true
 
@@ -16,7 +17,7 @@ size = Vector3(1, 0.005, 1)
 data = PackedVector3Array(-0.5, 0.0025, 0.5, 0.5, 0.0025, 0.5, -0.5, -0.0025, 0.5, 0.5, 0.0025, 0.5, 0.5, -0.0025, 0.5, -0.5, -0.0025, 0.5, 0.5, 0.0025, -0.5, -0.5, 0.0025, -0.5, 0.5, -0.0025, -0.5, -0.5, 0.0025, -0.5, -0.5, -0.0025, -0.5, 0.5, -0.0025, -0.5, 0.5, 0.0025, 0.5, 0.5, 0.0025, -0.5, 0.5, -0.0025, 0.5, 0.5, 0.0025, -0.5, 0.5, -0.0025, -0.5, 0.5, -0.0025, 0.5, -0.5, 0.0025, -0.5, -0.5, 0.0025, 0.5, -0.5, -0.0025, -0.5, -0.5, 0.0025, 0.5, -0.5, -0.0025, 0.5, -0.5, -0.0025, -0.5, 0.5, 0.0025, 0.5, -0.5, 0.0025, 0.5, 0.5, 0.0025, -0.5, -0.5, 0.0025, 0.5, -0.5, 0.0025, -0.5, 0.5, 0.0025, -0.5, -0.5, -0.0025, 0.5, 0.5, -0.0025, 0.5, -0.5, -0.0025, -0.5, 0.5, -0.0025, 0.5, 0.5, -0.0025, -0.5, -0.5, -0.0025, -0.5)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_voxmv"]
-albedo_texture = ExtResource("2_wbo6q")
+albedo_texture = ExtResource("3_7uwnp")
 uv1_scale = Vector3(0.3, 0.3, 0.3)
 uv1_triplanar = true
 
@@ -75,7 +76,7 @@ size = Vector3(0.5097656, 4.4975586, 80.4211)
 data = PackedVector3Array(-0.2549, 2.2488, 40.2105, 0.2549, 2.2488, 40.2105, -0.2549, -2.2488, 40.2105, 0.2549, 2.2488, 40.2105, 0.2549, -2.2488, 40.2105, -0.2549, -2.2488, 40.2105, 0.2549, 2.2488, -40.2105, -0.2549, 2.2488, -40.2105, 0.2549, -2.2488, -40.2105, -0.2549, 2.2488, -40.2105, -0.2549, -2.2488, -40.2105, 0.2549, -2.2488, -40.2105, 0.2549, 2.2488, 40.2105, 0.2549, 2.2488, -40.2105, 0.2549, -2.2488, 40.2105, 0.2549, 2.2488, -40.2105, 0.2549, -2.2488, -40.2105, 0.2549, -2.2488, 40.2105, -0.2549, 2.2488, -40.2105, -0.2549, 2.2488, 40.2105, -0.2549, -2.2488, -40.2105, -0.2549, 2.2488, 40.2105, -0.2549, -2.2488, 40.2105, -0.2549, -2.2488, -40.2105, 0.2549, 2.2488, 40.2105, -0.2549, 2.2488, 40.2105, 0.2549, 2.2488, -40.2105, -0.2549, 2.2488, 40.2105, -0.2549, 2.2488, -40.2105, 0.2549, 2.2488, -40.2105, -0.2549, -2.2488, 40.2105, 0.2549, -2.2488, 40.2105, -0.2549, -2.2488, -40.2105, 0.2549, -2.2488, 40.2105, 0.2549, -2.2488, -40.2105, -0.2549, -2.2488, -40.2105)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kcteu"]
-albedo_texture = ExtResource("2_wbo6q")
+albedo_texture = ExtResource("3_7uwnp")
 uv1_scale = Vector3(0.2, 0.2, 0.2)
 uv1_triplanar = true
 
@@ -232,5 +233,16 @@ mesh = SubResource("BoxMesh_0xlq7")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Paredes/Pared_cortita2/StaticBody3D" unique_id=1265698491]
 shape = SubResource("ConcavePolygonShape3D_rrja7")
 
-[node name="Player" parent="." unique_id=1317961015 instance=ExtResource("3_voxmv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.7696896, -11.216291)
+[node name="Player" parent="." unique_id=1317961015 instance=ExtResource("1_1efb8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.420074, 6.7696896, -11.216291)
+
+[node name="Enemigos" type="Node3D" parent="." unique_id=1119519509]
+
+[node name="EnemigoVigilante" parent="Enemigos" unique_id=84659721 instance=ExtResource("4_jhmsl")]
+transform = Transform3D(-0.70272285, 0, -0.71146363, 0, 1, 0, 0.71146363, 0, -0.70272285, -54.59519, 1.8840346, -36.39613)
+
+[node name="EnemigoVigilante2" parent="Enemigos" unique_id=243871188 instance=ExtResource("4_jhmsl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.342957, 1.3759804, 18.253084)
+
+[node name="EnemigoVigilante3" parent="Enemigos" unique_id=238047348 instance=ExtResource("4_jhmsl")]
+transform = Transform3D(0.90460515, 0, -0.42625052, 0, 1, 0, 0.42625052, 0, 0.90460515, -55.425377, 1.8848314, 19.830858)

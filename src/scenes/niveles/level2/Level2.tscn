@@ -1,11 +1,12 @@
 [gd_scene format=3 uid="uid://b7ff0u3or0c4q"]
 
-[ext_resource type="PackedScene" uid="uid://dcak6fkasbux7" path="res://src/scenes/player/Player.tscn" id="1_1efb8"]
-[ext_resource type="PackedScene" uid="uid://bywypvli2vaw4" path="res://src/scenes/enemigo/Enemigo.tscn" id="2_kj2x1"]
+[ext_resource type="PackedScene" uid="uid://dcak6fkasbux7" path="res://src/scenes/entidades/player/Player.tscn" id="1_1efb8"]
+[ext_resource type="PackedScene" uid="uid://bywypvli2vaw4" path="res://src/scenes/entidades/enemigos/enemigo/Enemigo.tscn" id="2_kj2x1"]
 [ext_resource type="Texture2D" uid="uid://juyof4p75wf4" path="res://src/assets/Tile_suelo_0.png" id="2_nu4uu"]
 [ext_resource type="Texture2D" uid="uid://johomt5a4go0" path="res://src/assets/Pared ladrillos sombre 64.png" id="3_7uwnp"]
-[ext_resource type="PackedScene" uid="uid://chniuohc07rds" path="res://src/scenes/enemigo_con_movimiento/EnemigoMovil.tscn" id="4_kuupt"]
 [ext_resource type="Texture2D" uid="uid://cpnysc0m8prno" path="res://src/assets/Pared grietas 64.png" id="4_m6pjm"]
+[ext_resource type="Texture2D" uid="uid://crv7thjvnrlmp" path="res://src/assets/Tile_pared_0.png" id="4_qhiwi"]
+[ext_resource type="Script" uid="uid://b5d4lxgsqa532" path="res://src/scenes/niveles/level2/pared_9.gd" id="5_nu4uu"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1efb8"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -44,12 +45,22 @@ size = Vector3(0.5097656, 4.4975586, 28.315998)
 data = PackedVector3Array(-0.2549, 2.2488, 14.158, 0.2549, 2.2488, 14.158, -0.2549, -2.2488, 14.158, 0.2549, 2.2488, 14.158, 0.2549, -2.2488, 14.158, -0.2549, -2.2488, 14.158, 0.2549, 2.2488, -14.158, -0.2549, 2.2488, -14.158, 0.2549, -2.2488, -14.158, -0.2549, 2.2488, -14.158, -0.2549, -2.2488, -14.158, 0.2549, -2.2488, -14.158, 0.2549, 2.2488, 14.158, 0.2549, 2.2488, -14.158, 0.2549, -2.2488, 14.158, 0.2549, 2.2488, -14.158, 0.2549, -2.2488, -14.158, 0.2549, -2.2488, 14.158, -0.2549, 2.2488, -14.158, -0.2549, 2.2488, 14.158, -0.2549, -2.2488, -14.158, -0.2549, 2.2488, 14.158, -0.2549, -2.2488, 14.158, -0.2549, -2.2488, -14.158, 0.2549, 2.2488, 14.158, -0.2549, 2.2488, 14.158, 0.2549, 2.2488, -14.158, -0.2549, 2.2488, 14.158, -0.2549, 2.2488, -14.158, 0.2549, 2.2488, -14.158, -0.2549, -2.2488, 14.158, 0.2549, -2.2488, 14.158, -0.2549, -2.2488, -14.158, 0.2549, -2.2488, 14.158, 0.2549, -2.2488, -14.158, -0.2549, -2.2488, -14.158)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lsqxg"]
+transparency = 1
 albedo_texture = ExtResource("3_7uwnp")
+uv1_scale = Vector3(0.2, 0.2, 0.2)
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5pe5e"]
+transparency = 1
+albedo_texture = ExtResource("4_qhiwi")
 uv1_scale = Vector3(0.2, 0.2, 0.2)
 uv1_triplanar = true
 
 [sub_resource type="BoxMesh" id="BoxMesh_7uwnp"]
 size = Vector3(0.5097656, 4.4975586, 19.662983)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fhsag"]
+size = Vector3(2.0264893, 3.695984, 21.883179)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_m6pjm"]
 data = PackedVector3Array(-0.2549, 2.2488, 9.8315, 0.2549, 2.2488, 9.8315, -0.2549, -2.2488, 9.8315, 0.2549, 2.2488, 9.8315, 0.2549, -2.2488, 9.8315, -0.2549, -2.2488, 9.8315, 0.2549, 2.2488, -9.8315, -0.2549, 2.2488, -9.8315, 0.2549, -2.2488, -9.8315, -0.2549, 2.2488, -9.8315, -0.2549, -2.2488, -9.8315, 0.2549, -2.2488, -9.8315, 0.2549, 2.2488, 9.8315, 0.2549, 2.2488, -9.8315, 0.2549, -2.2488, 9.8315, 0.2549, 2.2488, -9.8315, 0.2549, -2.2488, -9.8315, 0.2549, -2.2488, 9.8315, -0.2549, 2.2488, -9.8315, -0.2549, 2.2488, 9.8315, -0.2549, -2.2488, -9.8315, -0.2549, 2.2488, 9.8315, -0.2549, -2.2488, 9.8315, -0.2549, -2.2488, -9.8315, 0.2549, 2.2488, 9.8315, -0.2549, 2.2488, 9.8315, 0.2549, 2.2488, -9.8315, -0.2549, 2.2488, 9.8315, -0.2549, 2.2488, -9.8315, 0.2549, 2.2488, -9.8315, -0.2549, -2.2488, 9.8315, 0.2549, -2.2488, 9.8315, -0.2549, -2.2488, -9.8315, 0.2549, -2.2488, 9.8315, 0.2549, -2.2488, -9.8315, -0.2549, -2.2488, -9.8315)
@@ -175,11 +186,11 @@ data = PackedVector3Array(-8.9249, 2.2365, 0.5, 8.9249, 2.2365, 0.5, -8.9249, -2
 environment = SubResource("Environment_rrja7")
 
 [node name="Player" parent="." unique_id=1317961015 instance=ExtResource("1_1efb8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.65688, -0.47105885, 8.241878)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.905632, -0.47105885, 16.464645)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=766655197]
 transform = Transform3D(0.8660254, 0.3535534, -0.3535534, 0, 0.7071068, 0.7071068, 0.5, -0.61237246, 0.61237246, -5.304119, 47.283337, 3.250165)
-light_energy = 0.122
+light_energy = 0.0
 
 [node name="Piso" type="MeshInstance3D" parent="." unique_id=1630612887]
 transform = Transform3D(150, 0, 0, 0, 150, 0, 0, 0, 150, 0, -4.0055237, 0)
@@ -192,6 +203,7 @@ metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Piso/StaticBody3D" unique_id=85409720]
 shape = SubResource("ConcavePolygonShape3D_kj2x1")
+debug_color = Color(0.8142118, 0.1815176, 0.8893729, 0.41960785)
 
 [node name="Paredes" type="Node3D" parent="." unique_id=1065330259]
 
@@ -208,11 +220,20 @@ shape = SubResource("ConcavePolygonShape3D_kuupt")
 [node name="Pared9" type="MeshInstance3D" parent="Paredes" unique_id=2049126424]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.233357, -1.3632529, -13.626619)
 material_override = SubResource("StandardMaterial3D_lsqxg")
+material_overlay = SubResource("StandardMaterial3D_5pe5e")
 mesh = SubResource("BoxMesh_7uwnp")
+script = ExtResource("5_nu4uu")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Paredes/Pared9" unique_id=1718957981]
+[node name="Area3D" type="Area3D" parent="Paredes/Pared9" unique_id=1330288084]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Paredes/Pared9/StaticBody3D" unique_id=2020586045]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Paredes/Pared9/Area3D" unique_id=2058267440]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5132446, 1.347992, -0.6560669)
+shape = SubResource("BoxShape3D_fhsag")
+debug_color = Color(0.85580015, 0.19335073, 0.7682378, 0.41960785)
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="Paredes/Pared9" unique_id=2045038745]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Paredes/Pared9/StaticBody3D2" unique_id=2020445161]
 shape = SubResource("ConcavePolygonShape3D_m6pjm")
 
 [node name="Pared2" type="MeshInstance3D" parent="Paredes" unique_id=148700564]
@@ -328,13 +349,13 @@ shape = SubResource("ConcavePolygonShape3D_u848b")
 [node name="Enemigos" type="Node3D" parent="." unique_id=1461800133]
 
 [node name="Enemigo" parent="Enemigos" unique_id=1178914136 instance=ExtResource("2_kj2x1")]
-transform = Transform3D(-0.9999777, 0, -0.0066784443, 0, 1, 0, 0.0066784443, 0, -0.9999777, -3.8149908, -2.531187, -3.093613)
+transform = Transform3D(-0.9999777, 0, -0.0066784443, 0, 1, 0, 0.0066784443, 0, -0.9999777, 2.8157122, -2.531187, -15.110077)
 
-[node name="EnemigoMovil" parent="Enemigos" unique_id=356868624 instance=ExtResource("4_kuupt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.621944, -2.7315166, 18.341589)
+[node name="Enemigo2" parent="Enemigos" unique_id=1413266402 instance=ExtResource("2_kj2x1")]
+transform = Transform3D(0.017572647, 0, 0.99984556, 0, 1, 0, -0.99984556, 0, 0.017572647, 16.575794, -2.7183762, 8)
 
-[node name="EnemigoMovil2" parent="Enemigos" unique_id=1758990669 instance=ExtResource("4_kuupt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.002943, -2.6474216, -5.849083)
+[node name="Enemigo3" parent="Enemigos" unique_id=1321776569 instance=ExtResource("2_kj2x1")]
+transform = Transform3D(0.0133723365, 0, -0.9999106, 0, 1, 0, 0.9999106, 0, 0.0133723365, -28.299856, -2.5864458, 1.2020721)
 
-[node name="EnemigoMovil3" parent="Enemigos" unique_id=1052134988 instance=ExtResource("4_kuupt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9100375, -2.7970035, -5.367322)
+[connection signal="body_entered" from="Paredes/Pared9/Area3D" to="Paredes/Pared9" method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Paredes/Pared9/Area3D" to="Paredes/Pared9" method="_on_area_3d_body_exited"]

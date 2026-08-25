@@ -23,11 +23,12 @@ window/stretch/aspect="expand"
 [file_customization]
 
 folder_colors={
-"res://src/assets/": "red",
+"res://src/": "red",
+"res://src/assets/": "orange",
 "res://src/core/": "green",
 "res://src/scenes/": "yellow",
-"res://src/scenes/niveles/": "purple",
-"res://src/scenes/player/": "green"
+"res://src/scenes/entidades/player/": "yellow",
+"res://src/scenes/niveles/": "yellow"
 }
 
 [physics]
