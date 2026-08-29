@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cwyt54fv3b6ik" path="res://src/scenes/entidades/player/player.gd" id="1_0kbph"]
 [ext_resource type="Script" uid="uid://c2k8o87yv57ls" path="res://src/scenes/entidades/player/camera_3d.gd" id="2_sdprq"]
+[ext_resource type="Texture2D" uid="uid://dgp6sq1dhgom7" path="res://src/assets/Osvaldo_Idle.png" id="3_0ui0g"]
 [ext_resource type="Texture2D" uid="uid://bkdeti3xcqudo" path="res://src/assets/Osvaldo_Walk_Front.png" id="3_xqlsy"]
 [ext_resource type="Texture2D" uid="uid://bmcnyslfx0137" path="res://src/assets/Osvaldo_Walk_Back.png" id="3_xxciv"]
 
@@ -15,6 +16,38 @@ height = 2.2470703
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fhsag"]
 radius = 0.6621094
 height = 2.324829
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l60oy"]
+atlas = ExtResource("3_0ui0g")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yb8no"]
+atlas = ExtResource("3_0ui0g")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7vtof"]
+atlas = ExtResource("3_0ui0g")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_us6au"]
+atlas = ExtResource("3_0ui0g")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q0xvi"]
+atlas = ExtResource("3_0ui0g")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wlye5"]
+atlas = ExtResource("3_0ui0g")
+region = Rect2(128, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6kkdj"]
+atlas = ExtResource("3_0ui0g")
+region = Rect2(0, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qmqon"]
+atlas = ExtResource("3_0ui0g")
+region = Rect2(64, 128, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xj1vy"]
 atlas = ExtResource("3_xxciv")
@@ -68,6 +101,35 @@ region = Rect2(128, 64, 64, 64)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_l60oy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yb8no")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7vtof")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_us6au")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q0xvi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wlye5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6kkdj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qmqon")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_xj1vy")
 }, {
 "duration": 1.0,
@@ -87,7 +149,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"walk_back",
-"speed": 5.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -110,7 +172,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"walk_front",
-"speed": 5.0
+"speed": 8.0
 }]
 
 [node name="Player" type="CharacterBody3D" unique_id=1317961015 groups=["jugador"]]
@@ -123,7 +185,7 @@ material_override = SubResource("StandardMaterial3D_sdprq")
 mesh = SubResource("CapsuleMesh_fhsag")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1541246915]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.055480957, 0)
+transform = Transform3D(1.2311465, 0, 0, 0, 1.6759875, 0, 0, 0, 1, 0, -0.055480957, 0)
 shape = SubResource("CapsuleShape3D_fhsag")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=54958763 node_paths=PackedStringArray("target")]
@@ -131,12 +193,15 @@ transform = Transform3D(1, 0, 0, 0, 0.7071068, 0.7071068, 0, -0.7071068, 0.70710
 top_level = true
 script = ExtResource("2_sdprq")
 target = NodePath("..")
-distance = 9.0
+distance = 5.0
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=828985903]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+transform = Transform3D(4.8153415, 0, 0, 0, 5.841345, 0, 0, 0, 4, 0, 0, 0)
 billboard = 2
 sprite_frames = SubResource("SpriteFrames_fhsag")
-animation = &"walk_back"
+animation = &"walk_front"
+frame_progress = 0.7565648
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1362631186]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1662703, 0)
+omni_range = 9.559957

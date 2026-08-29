@@ -4,9 +4,10 @@
 [ext_resource type="Script" uid="uid://cy1pugwogcwvs" path="res://src/scenes/niveles/level1/level_1.gd" id="1_xh83b"]
 [ext_resource type="Texture2D" uid="uid://juyof4p75wf4" path="res://src/assets/Tile_suelo_0.png" id="2_nu4uu"]
 [ext_resource type="Texture2D" uid="uid://johomt5a4go0" path="res://src/assets/Pared ladrillos sombre 64.png" id="3_7uwnp"]
-[ext_resource type="Script" uid="uid://b5d4lxgsqa532" path="res://src/scenes/niveles/level2/pared_9.gd" id="4_hfnch"]
-[ext_resource type="PackedScene" uid="uid://dbd5oky0j7im7" path="res://src/scenes/entidades/enemigos/enemigo_vigilante/EnemigoVigilante.tscn" id="4_jhmsl"]
-[ext_resource type="PackedScene" uid="uid://bb7ud135w0a5e" path="res://src/scenes/hud/Hud.tscn" id="5_5q5dq"]
+[ext_resource type="Script" uid="uid://b5d4lxgsqa532" path="res://src/scenes/niveles/level_test_2/pared_9.gd" id="4_hfnch"]
+[ext_resource type="PackedScene" uid="uid://bywypvli2vaw4" path="res://src/scenes/entidades/enemigos/enemigo/Enemigo.tscn" id="7_e8jlo"]
+[ext_resource type="PackedScene" uid="uid://by0m5t5uu1fc5" path="res://src/scenes/WinZone/WinZone.tscn" id="7_hfnch"]
+[ext_resource type="PackedScene" uid="uid://dk7m1xmnyadfr" path="res://src/scenes/niveles/level2/level2.tscn" id="8_yy4av"]
 
 [sub_resource type="Environment" id="Environment_fhsag"]
 background_mode = 2
@@ -117,6 +118,7 @@ environment = SubResource("Environment_fhsag")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=822838564]
 transform = Transform3D(0.8660254, 0.3535534, -0.3535534, 0, 0.7071068, 0.7071068, 0.5, -0.61237246, 0.61237246, -17.061443, 18.255276, -15.290889)
+light_color = Color(1, 0.06666667, 1, 1)
 light_energy = 0.0
 
 [node name="Piso" type="MeshInstance3D" parent="." unique_id=2025389888]
@@ -294,17 +296,19 @@ mesh = SubResource("BoxMesh_0xlq7")
 shape = SubResource("ConcavePolygonShape3D_rrja7")
 
 [node name="Player" parent="." unique_id=1317961015 instance=ExtResource("1_1efb8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.420074, 6.7696896, -11.216291)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.853046, 6.7696896, -3.2529478)
 
 [node name="Enemigos" type="Node3D" parent="." unique_id=1119519509]
 
-[node name="EnemigoVigilante" parent="Enemigos" unique_id=84659721 instance=ExtResource("4_jhmsl")]
-transform = Transform3D(-0.70272285, 0, -0.71146363, 0, 1, 0, 0.71146363, 0, -0.70272285, -54.59519, 1.8840346, -36.39613)
+[node name="Enemigo" parent="Enemigos" unique_id=1178914136 instance=ExtResource("7_e8jlo")]
+transform = Transform3D(-0.22263883, 0, -0.9749011, 0, 1, 0, 0.9749011, 0, -0.22263883, -55.659107, 1.4812841, -37.292137)
 
-[node name="EnemigoVigilante2" parent="Enemigos" unique_id=243871188 instance=ExtResource("4_jhmsl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.342957, 1.3759804, 18.253084)
+[node name="Enemigo2" parent="Enemigos" unique_id=1438507178 instance=ExtResource("7_e8jlo")]
+transform = Transform3D(0.9835078, 0, 0.18086547, 0, 1, 0, -0.18086547, 0, 0.9835078, 19.522339, 1.5280013, 18.438679)
 
-[node name="EnemigoVigilante3" parent="Enemigos" unique_id=238047348 instance=ExtResource("4_jhmsl")]
-transform = Transform3D(0.90460515, 0, -0.42625052, 0, 1, 0, 0.42625052, 0, 0.90460515, -55.425377, 1.8848314, 19.830858)
+[node name="Enemigo3" parent="Enemigos" unique_id=2056519378 instance=ExtResource("7_e8jlo")]
+transform = Transform3D(0.1423828, 0, -0.98981166, 0, 1, 0, 0.98981166, 0, 0.1423828, -39.445293, 1.6278243, 18.843075)
 
-[node name="Hud" parent="." unique_id=1569060435 instance=ExtResource("5_5q5dq")]
+[node name="WinZone" parent="." unique_id=681362537 instance=ExtResource("7_hfnch")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -48.892563, 0.7843195, 11.523407)
+escena_victoria = ExtResource("8_yy4av")

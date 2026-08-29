@@ -2,17 +2,20 @@ extends CharacterBody3D
 
 @export var SPEED := 6.0
 @export var JUMP_VELOCITY := 4.5
-@export_flags_3d_physics var capa_dano_enemigos: int = 1 
+# Usamos un int normal. Asegúrate de poner el número de la capa de enemigos (ej: 2)
+@export var capa_dano_enemigos: int = 2 
 
 @onready var camera_3d: Camera3D = get_viewport().get_camera_3d()
 @onready var animated_sprite_3d: AnimatedSprite3D = $AnimatedSprite3D
 
 var es_invisible := false
 var timer_invisibilidad: Timer
-
 var ultima_direccion_y := 1.0 
 
 func _ready() -> void:
+	
+	animated_sprite_3d.play("idle")
+	
 	if animated_sprite_3d:
 		animated_sprite_3d.modulate.a = 1.0
 	
@@ -90,9 +93,10 @@ func _alternar_invisibilidad() -> void:
 	if es_invisible:
 		if animated_sprite_3d:
 			animated_sprite_3d.modulate.a = 0.1
-		
+		# Apagamos SOLO la capa de enemigos
 		set_collision_layer_value(capa_dano_enemigos, false)
 	else:
 		if animated_sprite_3d:
 			animated_sprite_3d.modulate.a = 1.0
+		# Encendemos la capa de enemigos
 		set_collision_layer_value(capa_dano_enemigos, true)

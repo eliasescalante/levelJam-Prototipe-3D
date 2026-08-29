@@ -1,6 +1,54 @@
 [gd_scene format=3 uid="uid://bywypvli2vaw4"]
 
 [ext_resource type="Script" uid="uid://cha8v0mltblli" path="res://src/scenes/entidades/enemigos/enemigo/enemigo.gd" id="1_cf7et"]
+[ext_resource type="Script" uid="uid://bgevn3vkyo77i" path="res://src/scenes/entidades/enemigos/enemigo-pj.gd" id="1_jairk"]
+[ext_resource type="Texture2D" uid="uid://bbv8c6fcwhqe0" path="res://src/assets/Owl_IdleFront.png" id="2_gxpls"]
+[ext_resource type="Texture2D" uid="uid://b5b8itjepm8ob" path="res://src/assets/OwlStand.png" id="3_k0ghn"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qpix5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k0ghn"]
+atlas = ExtResource("2_gxpls")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jairk"]
+atlas = ExtResource("2_gxpls")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5sf4r"]
+atlas = ExtResource("2_gxpls")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_abj5v"]
+atlas = ExtResource("2_gxpls")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ckdqe"]
+atlas = ExtResource("2_gxpls")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fhsag"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k0ghn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jairk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5sf4r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_abj5v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ckdqe")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 8.0
+}]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qpix5"]
 albedo_color = Color(1, 0.25490198, 0.11372549, 1)
@@ -12,46 +60,71 @@ albedo_color = Color(1, 0.25490198, 0.11372549, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ykvqv"]
 transparency = 1
 shading_mode = 0
-albedo_color = Color(0.7647059, 0.05882353, 0, 0.34901962)
+albedo_color = Color(0, 0, 0, 0.6627451)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_fhsag"]
 top_radius = 4.0
 height = 0.02
 
-[node name="Enemigo" type="Area3D" unique_id=1178914136]
+[node name="CharacterBody3D" type="CharacterBody3D" unique_id=773585598]
+script = ExtResource("1_jairk")
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="." unique_id=1404518676]
+transform = Transform3D(1, 0, 0, 0, 0.00403971, 0.99999183, 0, -0.99999183, 0.00403971, 0, 6.1053095, 0)
+light_energy = 40.0
+light_indirect_energy = 400.0
+spot_range = 8.003946
+spot_angle = 29.897535
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1086895266]
+shape = SubResource("CapsuleShape3D_qpix5")
+debug_color = Color(0.8428701, 0.12420849, 0.868864, 0.41960785)
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1152137137]
+transform = Transform3D(2.884, 0, 0, 0, 2.884, 0, 0, 0, 2.884, 0, -0.058643997, 0)
+cast_shadow = 2
+billboard = 2
+alpha_cut = 1
+texture = ExtResource("3_k0ghn")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=418688666]
+transform = Transform3D(2.8835912, 0, 0, 0, 2.7835677, 0, 0, 0, 1.6541357, 0, -0.06721699, 0)
+billboard = 2
+alpha_cut = 1
+sprite_frames = SubResource("SpriteFrames_fhsag")
+animation = &"idle"
+frame_progress = 0.5598187
+
+[node name="Enemigo" type="Area3D" parent="." unique_id=1178914136]
 script = ExtResource("1_cf7et")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=927249094]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2424934, 0)
-light_color = Color(1, 1, 0.1254902, 1)
-
-[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=96991568]
-transform = Transform3D(1, 0, 0, 0, 0.99071074, 0.13598657, 0, -0.13598657, 0.99071074, 0, 0, -0.6140511)
-light_color = Color(1, 1, 0.047058824, 1)
-light_energy = 30.0
+[node name="SpotLight3D" type="SpotLight3D" parent="Enemigo" unique_id=96991568]
+transform = Transform3D(1, 0, 0, 0, 0.9999451, 0.01048474, 0, -0.01048474, 0.9999451, 0, 0, -0.6140511)
+light_color = Color(0.67823863, 0.0003473115, 0.67863536, 1)
+light_energy = 20.0
 light_indirect_energy = 6.252
 shadow_enabled = true
-spot_range = 18.14669
-spot_angle = 24.757145
+spot_range = 67.94358
+spot_angle = 39.286823
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1475832305]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Enemigo" unique_id=1475832305]
+visible = false
 material_override = SubResource("StandardMaterial3D_qpix5")
 mesh = SubResource("CapsuleMesh_fhsag")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=525546519]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Enemigo" unique_id=525546519]
 shape = SubResource("CapsuleShape3D_fhsag")
 
-[node name="RangoVision" type="Area3D" parent="." unique_id=861773098]
+[node name="RangoVision" type="Area3D" parent="Enemigo" unique_id=861773098]
 
-[node name="SombraVision" type="CSGMesh3D" parent="RangoVision" unique_id=1023087853]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0687643, 0)
-visible = false
+[node name="SombraVision" type="CSGMesh3D" parent="Enemigo/RangoVision" unique_id=1023087853]
+transform = Transform3D(0.19989212, 0, 0, 0, 1, 0, 0, 0, 0.15908791, 0, -1.0687643, 0)
 material_override = SubResource("StandardMaterial3D_ykvqv")
 mesh = SubResource("CylinderMesh_fhsag")
 
-[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="RangoVision" unique_id=391295330]
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="Enemigo/RangoVision" unique_id=391295330]
 transform = Transform3D(1, 0, 0, 0, -0.13935262, -0.99024284, 0, 0.99024284, -0.13935262, 0, 0, 0)
-polygon = PackedVector2Array(0.056139097, 0.049279213, 4.4682717, -13.390197, -3.9342036, -13.350657)
+polygon = PackedVector2Array(0.056139097, 0.049279213, 6.321282, -26.821316, -6.0258446, -27.42186)
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="body_entered" from="RangoVision" to="." method="_on_rango_vision_body_entered"]
+[connection signal="body_entered" from="Enemigo" to="Enemigo" method="_on_body_entered"]
+[connection signal="body_entered" from="Enemigo/RangoVision" to="Enemigo" method="_on_rango_vision_body_entered"]

@@ -4,8 +4,9 @@ extends Node3D
 
 func _ready() -> void:
 	# Conectamos las señales del GameManager al HUD
-	GameManager.time_updated.connect(hud.update_time)
-	GameManager.time_out.connect(_on_game_over)
+	#GameManager.time_updated.connect(hud.update_time)
+	#GameManager.time_out.connect(_on_game_over)
+	pass
 
 
 func _on_game_over() -> void:
